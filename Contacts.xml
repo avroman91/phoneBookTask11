@@ -8,5 +8,9 @@
       <name>testX2</name>
       <phone>2</phone>
     </contacts>
+    <contacts>
+      <name>testX3</name>
+      <phone>3</phone>
+    </contacts>
   </contacts>
 </ContactList>

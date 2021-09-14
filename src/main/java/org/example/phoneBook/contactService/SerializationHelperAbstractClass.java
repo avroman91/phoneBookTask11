@@ -3,6 +3,8 @@ package org.example.phoneBook.contactService;
 import lombok.Data;
 import org.example.phoneBook.utils.ListUtils;
 
+import java.util.stream.Collectors;
+
 @Data
 public abstract class SerializationHelperAbstractClass implements ContactsService {
 
@@ -42,7 +44,7 @@ public abstract class SerializationHelperAbstractClass implements ContactsServic
     @Override
     public ContactList findByName(String name) {
         if (cache == null) cache = load();
-        return ListUtils.filter(cache, contact -> contact.getName().contains(name));
+        return new ContactList(cache.getContacts().stream().filter(c->c.getName().contains(name)).collect(Collectors.toList()));
     }
 
 }

@@ -46,10 +46,11 @@ public class Menu {
     public ContactsService chooseType() {
         System.out.print("Which method of serialization you would like to use ? ");
         System.out.println("Type number of method to choose : ");
-        System.out.println("1 - Keep data in memory; \n" +
-                "2 - Keep data in CSV file; \n" +
-                "3 - Keep data in object file; \n" +
-                "4 - Keep data in XML file;");
+        System.out.println("1 - Keep data in memory;\n" +
+                "2 - Keep data in CSV file;\n" +
+                "3 - Keep data in object file;\n" +
+                "4 - Keep data in XML file;\n" +
+                "5 - Keep data in JSON file;");
         while (true) {
             int choice = scanner.nextInt();
             scanner.nextLine();
@@ -62,6 +63,8 @@ public class Menu {
                     return new ByteSerializationContactsService();
                 case 4:
                     return new XmlSerializationContactService();
+                case 5:
+                    return new JsonSerializationContactService();
                 default:
                     break;
             }

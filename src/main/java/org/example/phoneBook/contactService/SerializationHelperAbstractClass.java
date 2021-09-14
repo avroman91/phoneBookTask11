@@ -44,7 +44,7 @@ public abstract class SerializationHelperAbstractClass implements ContactsServic
     @Override
     public ContactList findByName(String name) {
         if (cache == null) cache = load();
-        return new ContactList(cache.getContacts().stream().filter(c->c.getName().contains(name)).collect(Collectors.toList()));
+        return new ContactList(cache.getContacts().stream().filter(c -> c.getName().contains(name)).collect(Collectors.toList()));
     }
 
 }

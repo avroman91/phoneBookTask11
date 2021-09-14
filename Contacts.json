@@ -5,5 +5,8 @@
   }, {
     "name" : "testJ2",
     "phone" : "2"
+  }, {
+    "name" : "testJ3",
+    "phone" : "3"
   } ]
 }

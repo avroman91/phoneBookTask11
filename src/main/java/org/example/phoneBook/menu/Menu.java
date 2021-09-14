@@ -1,5 +1,7 @@
 package org.example.phoneBook.menu;
 
+import com.fasterxml.jackson.databind.json.JsonMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.example.phoneBook.contactService.*;
 
 import java.util.List;
@@ -62,9 +64,9 @@ public class Menu {
                 case 3:
                     return new ByteSerializationContactsService();
                 case 4:
-                    return new XmlSerializationContactService();
+                    return new JSonXmlSerializationContactService(new XmlMapper(), "Contacts.xml");
                 case 5:
-                    return new JsonSerializationContactService();
+                    return new JSonXmlSerializationContactService(new JsonMapper(), "Contacts.json");
                 default:
                     break;
             }

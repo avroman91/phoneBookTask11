@@ -1,18 +1,20 @@
 package org.example.phoneBook.contactService;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import lombok.AllArgsConstructor;
 
 import java.io.*;
 
-public class XmlSerializationContactService extends SerializationHelperAbstractClass {
+@AllArgsConstructor
+public class JSonXmlSerializationContactService extends SerializationHelperAbstractClass {
 
-    ObjectMapper objectMapper = new XmlMapper();
+    ObjectMapper objectMapper;
+    String path;
 
     @Override
     public void save() {
         try {
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File("Contacts.xml"), cache);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(path), cache);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -23,7 +25,7 @@ public class XmlSerializationContactService extends SerializationHelperAbstractC
     public ContactList load() {
         if (cache == null) {
             try {
-                cache = objectMapper.readValue(new File("Contacts.xml"), ContactList.class);
+                cache = objectMapper.readValue(new File(path), ContactList.class);
             } catch (IOException e) {
                 e.printStackTrace();
             }

@@ -1,12 +1,12 @@
 <ContactList>
   <contacts>
     <contacts>
-      <name>test5</name>
-      <phone>5</phone>
+      <name>testX1</name>
+      <phone>1</phone>
     </contacts>
     <contacts>
-      <name>test6</name>
-      <phone>6</phone>
+      <name>testX2</name>
+      <phone>2</phone>
     </contacts>
   </contacts>
 </ContactList>

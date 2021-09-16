@@ -49,9 +49,9 @@ public abstract class SerializationHelperAbstractClass implements ContactsServic
         return new ContactList(cache.getContacts().stream().filter(c -> c.getName().contains(name)).collect(Collectors.toList()));
     }
 
-    public void checkForFileExisting(String fileName){
+    public void checkForFileExisting(String fileName) {
         File file = new File(fileName);
-        if(!file.exists()){
+        if (!file.exists()) {
             try {
                 file.createNewFile();
             } catch (IOException e) {

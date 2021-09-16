@@ -18,6 +18,7 @@ public class ByteSerializationContactsService extends SerializationHelperAbstrac
 
     @Override
     public ContactList load() {
+        checkForFileExisting("Contacts.obj");
         if (cache == null) {
             try (ObjectInputStream objectInputStream = new ObjectInputStream(new FileInputStream("Contacts.obj"))) {
                 cache = (ContactList) objectInputStream.readObject();

@@ -9,12 +9,12 @@ import java.io.*;
 public class JSonXmlSerializationContactService extends SerializationHelperAbstractClass {
 
     ObjectMapper objectMapper;
-    String path;
+    String fileName;
 
     @Override
     public void save() {
         try {
-            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(path), cache);
+            objectMapper.writerWithDefaultPrettyPrinter().writeValue(new File(fileName), cache);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -23,9 +23,10 @@ public class JSonXmlSerializationContactService extends SerializationHelperAbstr
 
     @Override
     public ContactList load() {
+        checkForFileExisting(fileName);
         if (cache == null) {
             try {
-                cache = objectMapper.readValue(new File(path), ContactList.class);
+                cache = objectMapper.readValue(new File(fileName), ContactList.class);
             } catch (IOException e) {
                 e.printStackTrace();
             }

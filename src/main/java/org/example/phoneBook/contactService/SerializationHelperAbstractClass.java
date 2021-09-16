@@ -3,6 +3,8 @@ package org.example.phoneBook.contactService;
 import lombok.Data;
 import org.example.phoneBook.utils.ListUtils;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.stream.Collectors;
 
 @Data
@@ -45,6 +47,17 @@ public abstract class SerializationHelperAbstractClass implements ContactsServic
     public ContactList findByName(String name) {
         if (cache == null) cache = load();
         return new ContactList(cache.getContacts().stream().filter(c -> c.getName().contains(name)).collect(Collectors.toList()));
+    }
+
+    public void checkForFileExisting(String fileName){
+        File file = new File(fileName);
+        if(!file.exists()){
+            try {
+                file.createNewFile();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

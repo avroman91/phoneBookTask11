@@ -20,6 +20,7 @@ public class CSVSerializationContactsService extends SerializationHelperAbstract
 
     @Override
     public ContactList load() {
+        checkForFileExisting("Contacts.csv");
         if (cache == null) {
             try (FileReader fileReader = new FileReader("Contacts.csv")) {
                 BufferedReader bufferedReader = new BufferedReader(fileReader);
